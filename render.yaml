@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: research-tracker
+    env: node
+    buildCommand: >
+      cd server && npm install &&
+      cd ../client && npm install && npm run build
+    startCommand: node server/index.js
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
